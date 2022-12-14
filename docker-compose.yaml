@@ -13,6 +13,7 @@ services:
       - ./site:/usr/share/nginx/site
       - ./service1:/usr/share/nginx/service1
       - ./service2:/usr/share/nginx/service2
+      - ./logs:/var/log/nginx
     ports:
       - 80:80
       - 8080:8080
