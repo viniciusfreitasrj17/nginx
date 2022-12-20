@@ -12,9 +12,11 @@ services:
       - ./nginx/load-balancer.conf:/etc/nginx/conf.d/load-balancer.conf
       - ./nginx/fpm.conf:/etc/nginx/conf.d/fpm.conf
       - ./nginx/fastcgi.conf:/etc/nginx/fastcgi.conf
+      - ./nginx/performance.conf:/etc/nginx/conf.d/performance.conf
       - ./site:/usr/share/nginx/site
       - ./service1:/usr/share/nginx/service1
       - ./service2:/usr/share/nginx/service2
+      - ./performance:/usr/share/nginx/performance
       - ./logs:/var/log/nginx
     ports:
       - 80:80
@@ -23,6 +25,7 @@ services:
       - 8082:8082
       - 8083:8083
       - 8085:8085
+      - 8086:8086
 
   fpm_server:
     image: php:fpm
