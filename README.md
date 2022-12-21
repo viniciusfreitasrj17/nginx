@@ -37,3 +37,21 @@ curl -X GET http://localhost:8082/
 ```sh
 curl -X GET http://localhost:8083/
 ```
+
+## Fastcgi
+
+```sh
+curl -X GET http://localhost:8085/
+```
+
+## Cache and Performance
+
+```sh
+curl -X GET http://localhost:8086/
+```
+
+## HTTPS
+
+```sh
+curl -X GET https://localhost/
+```
