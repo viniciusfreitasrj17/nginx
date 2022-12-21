@@ -19,6 +19,7 @@ services:
       - ./performance:/usr/share/nginx/performance
       - ./logs:/var/log/nginx
       - ./tmp/cache:/tmp/cache
+      - ./tmp/https:/tmp/https
     ports:
       - 80:80
       - 8080:8080
@@ -27,6 +28,7 @@ services:
       - 8083:8083
       - 8085:8085
       - 8086:8086
+      - 443:443
 
   fpm_server:
     image: php:fpm
@@ -35,3 +37,8 @@ services:
     ports:
       - 9000:9000
 
+  openssl:
+    image: alpine/openssl
+    command: req -x509 -nodes -days 30 -subj "/C=US/ST=NY/O=Company, Inc./CN=localhost" -addext "subjectAltName=DNS:mydomain.com" -newkey rsa:2048 -keyout /tmp/https/localhost.key -out /tmp/https/localhost.crt
+    volumes:
+      - ./tmp/https:/tmp/https
