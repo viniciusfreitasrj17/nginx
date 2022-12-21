@@ -18,6 +18,7 @@ services:
       - ./service2:/usr/share/nginx/service2
       - ./performance:/usr/share/nginx/performance
       - ./logs:/var/log/nginx
+      - ./tmp/cache:/tmp/cache
     ports:
       - 80:80
       - 8080:8080
